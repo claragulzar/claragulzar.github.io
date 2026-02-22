@@ -1,128 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title> Clara Sendtner & Gulzar Singh Wedding</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gulzar Singh & Clara Sendtner Wedding</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
-      background: #fdf6f0;
-      color: #333;
-      display: none; /* Hidden until password correct */
-    }
+<style>
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background-color: #f8f1e7;
+    background-image: radial-gradient(#f1e4d3 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: #333;
+    display: none;
+}
 
-    header {
-      background: #c8a97e;
-      padding: 40px;
-      color: white;
-    }
+header {
+    background-color: #800020;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
 
-    section {
-      padding: 40px 20px;
-    }
+h1 {
+    margin: 0;
+    font-size: 40px;
+}
 
-    .box {
-      background: white;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+h2 {
+    margin-top: 10px;
+    font-weight: normal;
+}
 
-    a.button {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #c8a97e;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
 
-    .countdown {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-  </style>
+.box {
+    background: white;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 650px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-  <script>
-    const correctPassword = "GSCS2026";
+.countdown {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
 
-    function checkPassword() {
-      const userInput = prompt("Please enter the wedding access password:");
-      if (userInput === correctPassword) {
+.button {
+    display: inline-block;
+    padding: 14px 26px;
+    background: #800020;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.lang-switch {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.lang-switch button {
+    background: white;
+    border: none;
+    padding: 6px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+</style>
+
+<script>
+const correctPassword = "GSCS2026";
+
+function checkPassword() {
+    const input = prompt("Please enter the wedding access password:");
+    if (input === correctPassword) {
         document.body.style.display = "block";
-      } else {
-        alert("Incorrect password.");
-        document.body.innerHTML = "<h2>Access Denied</h2>";
-      }
+    } else {
+        document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Access Denied</h2>";
     }
+}
 
-    function startCountdown() {
-      const weddingDate = new Date("September 05, 2026 14:00:00").getTime();
-      const countdownElement = document.getElementById("countdown");
+function countdown() {
+    const weddingDate = new Date("September 05, 2026 14:00:00").getTime();
+    const element = document.getElementById("countdown");
 
-      setInterval(function() {
+    setInterval(function() {
         const now = new Date().getTime();
-        const distance = weddingDate - now;
+        let diff = weddingDate - now;
 
-        if (distance < 0) {
-          countdownElement.innerHTML = "💍 The Wedding Day Has Arrived!";
-          return;
+        if (diff < 0) {
+            element.innerHTML = "The Wedding Day Has Arrived!";
+            return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const months = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+        diff -= months * (1000 * 60 * 60 * 24 * 30.44);
 
-        countdownElement.innerHTML =
-          days + " Days " +
-          hours + " Hours " +
-          minutes + " Minutes " +
-          seconds + " Seconds";
-      }, 1000);
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff -= days * (1000 * 60 * 60 * 24);
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        diff -= hours * (1000 * 60 * 60);
+
+        const minutes = Math.floor(diff / (1000 * 60));
+
+        element.innerHTML = months + " Months • " +
+                            days + " Days • " +
+                            hours + " Hours • " +
+                            minutes + " Minutes";
+    }, 60000);
+}
+
+const translations = {
+    en: {
+        subtitle: "We Are Getting Married!",
+        ceremony: "Wedding Ceremony",
+        reception: "Reception",
+        rsvp: "Please Confirm Your Attendance",
+        ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
+        receptionLoc: "Schlössle Biergarten – Neu-Ulm"
+    },
+    de: {
+        subtitle: "Wir heiraten!",
+        ceremony: "Trauung",
+        reception: "Feier",
+        rsvp: "Bitte bestätigt eure Teilnahme",
+        ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
+        receptionLoc: "Schlössle Biergarten – Neu-Ulm"
+    },
+    es: {
+        subtitle: "¡Nos casamos!",
+        ceremony: "Ceremonia",
+        reception: "Celebración",
+        rsvp: "Por favor confirma tu asistencia",
+        ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
+        receptionLoc: "Schlössle Biergarten – Neu-Ulm"
     }
+};
 
-    window.onload = function() {
-      checkPassword();
-      startCountdown();
-    };
-  </script>
+function setLanguage(lang) {
+    document.getElementById("subtitle").innerText = translations[lang].subtitle;
+    document.getElementById("ceremonyTitle").innerText = translations[lang].ceremony;
+    document.getElementById("receptionTitle").innerText = translations[lang].reception;
+    document.getElementById("rsvpTitle").innerText = translations[lang].rsvp;
+    document.getElementById("ceremonyLoc").innerText = translations[lang].ceremonyLoc;
+    document.getElementById("receptionLoc").innerText = translations[lang].receptionLoc;
+}
+
+window.onload = function() {
+    checkPassword();
+    countdown();
+}
+</script>
 
 </head>
-
 <body>
 
+<div class="lang-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('de')">DE</button>
+    <button onclick="setLanguage('es')">ES</button>
+</div>
+
 <header>
-  <h1>Gulzar Singh & Clara Sendtner</h1>
-  <h2>We Are Getting Married!</h2>
-  <p>05 September 2026</p>
-  <div class="countdown" id="countdown"></div>
+    <h1>Gulzar Singh & Clara Sendtner</h1>
+    <h2 id="subtitle">We Are Getting Married!</h2>
+    <p>05 September 2026 – 14:00</p>
+    <div id="countdown" class="countdown"></div>
 </header>
 
 <section>
-  <div class="box">
-    <h3>Wedding Ceremony</h3>
-    <p>Location: Ulm, Germany</p>
-    <p>Time: 14:00</p>
-  </div>
+    <div class="box">
+        <h3 id="ceremonyTitle">Wedding Ceremony</h3>
+        <p id="ceremonyLoc">Katholisches Pfarramt St. Albert – Neu-Ulm</p>
+        <a class="button" href="https://www.google.com/maps/search/?api=1&query=Katholisches+Pfarramt+St.+Albert+Neu-Ulm" target="_blank">View on Google Maps</a>
+    </div>
 
-  <div class="box">
-    <h3>Reception</h3>
-    <p>Location: [Venue Name]</p>
-    <p>Time: 18:00</p>
-  </div>
+    <div class="box">
+        <h3 id="receptionTitle">Reception</h3>
+        <p id="receptionLoc">Schlössle Biergarten – Schlössleweg 3, 89231 Neu-Ulm</p>
+        <a class="button" href="https://www.google.com/maps/search/?api=1&query=Schlössleweg+3+89231+Neu-Ulm" target="_blank">View on Google Maps</a>
+    </div>
 
-  <div class="box">
-    <h3>Upload Your Photos</h3>
-    <a class="button" href="https://photos.yourdomain.com">Click Here</a>
-  </div>
+    <div class="box" style="border: 2px solid #800020;">
+        <h3 id="rsvpTitle">Please Confirm Your Attendance</h3>
+        <p>Kindly complete the RSVP form.</p>
+        <a class="button" href="#" target="_blank">RSVP Here</a>
+    </div>
 </section>
 
 </body>
