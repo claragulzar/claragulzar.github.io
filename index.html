@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gulzar Singh & Clara Sendtner Wedding</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      background: #fdf6f0;
+      color: #333;
+      display: none; /* Hidden until password correct */
+    }
+
+    header {
+      background: #c8a97e;
+      padding: 40px;
+      color: white;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #c8a97e;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+
+  <script>
+    const correctPassword = "GSCS2026";
+
+    function checkPassword() {
+      const userInput = prompt("Please enter the wedding access password:");
+      if (userInput === correctPassword) {
+        document.body.style.display = "block";
+      } else {
+        alert("Incorrect password.");
+        document.body.innerHTML = "<h2>Access Denied</h2>";
+      }
+    }
+
+    function startCountdown() {
+      const weddingDate = new Date("September 05, 2026 14:00:00").getTime();
+      const countdownElement = document.getElementById("countdown");
+
+      setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          countdownElement.innerHTML = "💍 The Wedding Day Has Arrived!";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML =
+          days + " Days " +
+          hours + " Hours " +
+          minutes + " Minutes " +
+          seconds + " Seconds";
+      }, 1000);
+    }
+
+    window.onload = function() {
+      checkPassword();
+      startCountdown();
+    };
+  </script>
+
+</head>
+
+<body>
+
+<header>
+  <h1>Gulzar Singh & Clara Sendtner</h1>
+  <h2>We Are Getting Married!</h2>
+  <p>05 September 2026</p>
+  <div class="countdown" id="countdown"></div>
+</header>
+
+<section>
+  <div class="box">
+    <h3>Wedding Ceremony</h3>
+    <p>Location: Ulm, Germany</p>
+    <p>Time: 14:00</p>
+  </div>
+
+  <div class="box">
+    <h3>Reception</h3>
+    <p>Location: [Venue Name]</p>
+    <p>Time: 18:00</p>
+  </div>
+
+  <div class="box">
+    <h3>Upload Your Photos</h3>
+    <a class="button" href="https://photos.yourdomain.com">Click Here</a>
+  </div>
+</section>
+
+</body>
+</html>
