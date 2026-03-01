@@ -149,7 +149,7 @@ function countdown() {
         let diff = weddingDate - now;
 
         if (diff <= 0) {
-            document.getElementById("countdown").innerHTML = "The Wedding Day Has Arrived!";
+            document.getElementById("countdown").innerHTML = translations[currentLanguage].weddingArrived;
             return;
         }
 
@@ -174,7 +174,7 @@ function countdown() {
     updateCountdown();
     setInterval(updateCountdown, 60000);
 }
-
+    let currentLanguage = "en";
 const translations = {
     en: {
         subtitle: "We Are Getting Married!",
@@ -227,6 +227,7 @@ const translations = {
 };
 
 function setLanguage(lang) {
+    currentLanguage = lang;   // ← ADD THIS LINE
     document.getElementById("subtitle").innerText = translations[lang].subtitle;
     document.getElementById("ceremonyTitle").innerText = translations[lang].ceremony;
     document.getElementById("receptionTitle").innerText = translations[lang].reception;
