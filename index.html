@@ -137,6 +137,10 @@ function checkPassword() {
     }
 }
 
+function pluralize(value, labels) {
+    return value + " " + (value === 1 ? labels[0] : labels[1]);
+}
+
 function countdown() {
     const weddingDate = new Date("September 05, 2026 14:00:00");
 
@@ -161,10 +165,10 @@ function countdown() {
         const minutes = Math.floor(diff / (1000 * 60));
 
         document.getElementById("countdown").innerHTML =
-            months + " Months • " +
-            days + " Days • " +
-            hours + " Hours • " +
-            minutes + " Minutes";
+            pluralize(months, translations[currentLanguage].months) + " • " +
+            pluralize(days, translations[currentLanguage].days) + " • " +
+            pluralize(hours, translations[currentLanguage].hours) + " • " +
+            pluralize(minutes, translations[currentLanguage].minutes);
     }
 
     updateCountdown();
@@ -178,9 +182,14 @@ const translations = {
         reception: "Reception",
         rsvp: "Please Confirm Your Attendance",
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
-        receptionLoc: "Schlössle Biergarten – Neu-Ulm",
+        receptionLoc: "Schlössle – Neu-Ulm",
         giftTitle: "Gift Recommendation",
         timeLabel: "Time:",
+        months: ["Month", "Months"],
+        days: ["Day", "Days"],
+        hours: ["Hour", "Hours"],
+        minutes: ["Minute", "Minutes"],
+        weddingArrived: "The Wedding Day Has Arrived!",
         giftText: "The greatest gift is your presence. Besides, we already have everything we need. If you still want to gift us something, we would be grateful for a contribution to our trip to Spain/Portugal."
     },
     de: {
@@ -189,9 +198,14 @@ const translations = {
         reception: "Feier",
         rsvp: "Sagt Bescheid, ob ihr kommen könnt",
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
-        receptionLoc: "Schlössle Biergarten – Neu-Ulm",
+        receptionLoc: "Schlössle – Neu-Ulm",
         giftTitle: "Geschenke",
         timeLabel: "Uhrzeit:",
+        months: ["Monat", "Monate"],
+        days: ["Tag", "Tage"],
+        hours: ["Stunde", "Stunden"],
+        minutes: ["Minute", "Minuten"],
+        weddingArrived: "Der Hochzeitstag ist da!",
         giftText: "Das größte Geschenk ist eure Anwesenheit. Außerdem haben wir bereits alles, was wir brauchen. Wenn ihr uns dennoch eine Freude machen möchtet, sind wir dankbar für einen Zuschuss zu unserer Reise nach Spanien/Portugal."
     },
     es: {
@@ -200,9 +214,14 @@ const translations = {
         reception: "Fiesta",
         rsvp: "Por favor confirma tu asistencia",
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
-        receptionLoc: "Schlössle Biergarten – Neu-Ulm",
+        receptionLoc: "Schlössle – Neu-Ulm",
         giftTitle: "Regalos",
         timeLabel: "Hora:",
+        months: ["Mes", "Meses"],
+        days: ["Día", "Días"],
+        hours: ["Hora", "Horas"],
+        minutes: ["Minuto", "Minutos"],
+        weddingArrived: "¡El día de la boda ha llegado!",
         giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal."
     }
 };
