@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clara & Gulzar </title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
@@ -108,6 +110,16 @@ section {
         display: none;
     }
 }
+
+.gift-box {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #800020;
+    border: 2px solid #800020;
+    background: #fffaf4;
+}
 </style>
 
 <script>
@@ -161,6 +173,7 @@ const translations = {
         rsvp: "Please Confirm Your Attendance",
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
         receptionLoc: "Schlössle Biergarten – Neu-Ulm",
+        giftTitle: "Gift Recommendation",
         giftText: "The greatest gift is your presence. Besides, we already have everything we need. If you still want to gift us something, we would be grateful for a contribution to our trip to Spain/Portugal."
     },
     de: {
@@ -170,6 +183,7 @@ const translations = {
         rsvp: "Sagt Bescheid, ob ihr kommen könnt",
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
         receptionLoc: "Schlössle Biergarten – Neu-Ulm",
+        giftTitle: "Geschenkempfehlung",
         giftText: "Das größte Geschenk ist eure Anwesenheit. Außerdem haben wir bereits alles, was wir brauchen. Wenn ihr uns dennoch eine Freude machen möchtet, sind wir dankbar für einen Zuschuss zu unserer Reise nach Spanien/Portugal."
     },
     es: {
@@ -179,6 +193,7 @@ const translations = {
         rsvp: "Por favor confirma tu asistencia",
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
         receptionLoc: "Schlössle Biergarten – Neu-Ulm",
+        giftTitle: "Recomendación de regalo",
         giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal."
     }
 };
@@ -190,8 +205,9 @@ function setLanguage(lang) {
     document.getElementById("rsvpTitle").innerText = translations[lang].rsvp;
     document.getElementById("ceremonyLoc").innerText = translations[lang].ceremonyLoc;
     document.getElementById("receptionLoc").innerText = translations[lang].receptionLoc;
-    document.getElementById("giftTextLeft").innerText = translations[lang].giftText;
-    document.getElementById("giftTextRight").innerText = translations[lang].giftText;
+    document.getElementById("giftTitle").innerText = translations[lang].giftTitle;
+    document.getElementById("giftText").innerText = translations[lang].giftText;
+
 }
 
 window.onload = function() {
@@ -204,9 +220,6 @@ window.onload = function() {
 </head>
 <body>
 
-<div class="sidebar left" id="giftTextLeft"></div>
-    
-<div class="sidebar right" id="giftTextRight"></div>
 
 <div class="lang-switch">
     <button onclick="setLanguage('en')">EN</button>
@@ -239,6 +252,11 @@ window.onload = function() {
     <div class="box" style="border: 2px solid #800020;">
         <h3 id="rsvpTitle">Please Confirm Your Attendance</h3>
         <a class="button" href="https://clariherri.limesurvey.net/388935?lang=de&newtest=Y" target="_blank">RSVP Here</a>
+    </div>
+
+    <div class="box gift-box">
+        <h3 id="giftTitle">Gift Recommendation</h3>
+        <p id="giftText"></p>
     </div>
 </section>
 
