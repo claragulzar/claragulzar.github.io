@@ -129,21 +129,23 @@ function checkPassword() {
     const input = prompt("Please enter the wedding access password:");
     if (input === correctPassword) {
         document.body.style.display = "block";
+        
+        setLanguage('en');   // Default language
+        countdown();
     } else {
         document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Access Denied</h2>";
     }
 }
 
 function countdown() {
-    const weddingDate = new Date("September 05, 2026 14:00:00").getTime();
-    const element = document.getElementById("countdown");
+    const weddingDate = new Date("September 05, 2026 14:00:00");
 
-    setInterval(function() {
-        const now = new Date().getTime();
+    function updateCountdown() {
+        const now = new Date();
         let diff = weddingDate - now;
 
-        if (diff < 0) {
-            element.innerHTML = "The Wedding Day Has Arrived!";
+        if (diff <= 0) {
+            document.getElementById("countdown").innerHTML = "The Wedding Day Has Arrived!";
             return;
         }
 
@@ -158,11 +160,15 @@ function countdown() {
 
         const minutes = Math.floor(diff / (1000 * 60));
 
-        element.innerHTML = months + " Months • " +
-                            days + " Days • " +
-                            hours + " Hours • " +
-                            minutes + " Minutes";
-    }, 60000);
+        document.getElementById("countdown").innerHTML =
+            months + " Months • " +
+            days + " Days • " +
+            hours + " Hours • " +
+            minutes + " Minutes";
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
 }
 
 const translations = {
@@ -174,6 +180,7 @@ const translations = {
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
         receptionLoc: "Schlössle Biergarten – Neu-Ulm",
         giftTitle: "Gift Recommendation",
+        timeLabel: "Time:",
         giftText: "The greatest gift is your presence. Besides, we already have everything we need. If you still want to gift us something, we would be grateful for a contribution to our trip to Spain/Portugal."
     },
     de: {
@@ -184,6 +191,7 @@ const translations = {
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
         receptionLoc: "Schlössle Biergarten – Neu-Ulm",
         giftTitle: "Geschenke",
+        timeLabel: "Uhrzeit:",
         giftText: "Das größte Geschenk ist eure Anwesenheit. Außerdem haben wir bereits alles, was wir brauchen. Wenn ihr uns dennoch eine Freude machen möchtet, sind wir dankbar für einen Zuschuss zu unserer Reise nach Spanien/Portugal."
     },
     es: {
@@ -194,6 +202,7 @@ const translations = {
         ceremonyLoc: "Katholisches Pfarramt St. Albert – Neu-Ulm",
         receptionLoc: "Schlössle Biergarten – Neu-Ulm",
         giftTitle: "Regalos",
+        timeLabel: "Hora:",
         giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal."
     }
 };
@@ -207,13 +216,14 @@ function setLanguage(lang) {
     document.getElementById("receptionLoc").innerText = translations[lang].receptionLoc;
     document.getElementById("giftTitle").innerText = translations[lang].giftTitle;
     document.getElementById("giftText").innerText = translations[lang].giftText;
+    document.getElementById("ceremonyTimeLabel").innerText = translations[lang].timeLabel;
+    document.getElementById("receptionTimeLabel").innerText = translations[lang].timeLabel;
 
 }
 
 window.onload = function() {
     checkPassword();
-    countdown();
-    setLanguage('en');   // Default language
+    
 }
 </script>
 
@@ -238,14 +248,14 @@ window.onload = function() {
     <div class="box">
         <h3 id="ceremonyTitle">Wedding Ceremony</h3>
         <p id="ceremonyLoc">Katholisches Pfarramt St. Albert – Neu-Ulm</p>
-        <p><strong>Time:</strong> 14:00</p>
+        <p><strong id="ceremonyTimeLabel">Time:</strong> 14:00</p>
         <a class="button" href="https://www.google.com/maps/search/?api=1&query=Katholisches+Pfarramt+St.+Albert+Neu-Ulm" target="_blank">View on Google Maps</a>
     </div>
 
     <div class="box">
         <h3 id="receptionTitle">Reception</h3>
         <p id="receptionLoc">Schlössle Biergarten – Schlössleweg 3, 89231 Neu-Ulm</p>
-        <p><strong>Time:</strong> 15:00 - 02:00</p>
+        <p><strong id="receptionTimeLabel">Time:</strong> 15:00 - 02:00</p>
         <a class="button" href="https://www.google.com/maps/search/?api=1&query=Schlössleweg+3+89231+Neu-Ulm" target="_blank">View on Google Maps</a>
     </div>
 
