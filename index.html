@@ -190,7 +190,9 @@ const translations = {
         hours: ["Hour", "Hours"],
         minutes: ["Minute", "Minutes"],
         weddingArrived: "The Wedding Day Has Arrived!",
-        giftText: "The greatest gift is your presence. Besides, we already have everything we need. If you still want to gift us something, we would be grateful for a contribution to our trip to Spain/Portugal."
+        giftText: "The greatest gift is your presence. Besides, we already have everything we need. If you still want to gift us something, we would be grateful for a contribution to our trip to Spain/Portugal.",
+        celebrationTitle: "Celebration Details",
+        celebrationText: "Weather permitting, we hope to enjoy coffee and cake outside, followed later by a buffet and dancing indoors. We are looking forward to celebrating together and sharing many great conversations with you. If you have any ideas for the program, feel free to contact Judit (phone: +49 162 6922836)."
     },
     de: {
         subtitle: "Wir heiraten!",
@@ -206,7 +208,9 @@ const translations = {
         hours: ["Stunde", "Stunden"],
         minutes: ["Minute", "Minuten"],
         weddingArrived: "Der Hochzeitstag ist da!",
-        giftText: "Das größte Geschenk ist eure Anwesenheit. Außerdem haben wir bereits alles, was wir brauchen. Wenn ihr uns dennoch eine Freude machen möchtet, sind wir dankbar für einen Zuschuss zu unserer Reise nach Spanien/Portugal."
+        giftText: "Das größte Geschenk ist eure Anwesenheit. Außerdem haben wir bereits alles, was wir brauchen. Wenn ihr uns dennoch eine Freude machen möchtet, sind wir dankbar für einen Zuschuss zu unserer Reise nach Spanien/Portugal.",
+        celebrationTitle: "Weitere Informationen zur Feier",
+        celebrationText: "Es wird hoffentlich (bei gutem Wetter) draußen Kaffee und Kuchen geben und später drinnen Buffet und Tanz. Wir freuen uns auf gemeinsame Gespräche und die Feier mit euch. Für zusätzliche Ideen zum Programm gerne an Judit wenden (Tel.: +49 162 6922836)."
     },
     es: {
         subtitle: "¡Nos casamos!",
@@ -222,7 +226,9 @@ const translations = {
         hours: ["Hora", "Horas"],
         minutes: ["Minuto", "Minutos"],
         weddingArrived: "¡El día de la boda ha llegado!",
-        giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal."
+        giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal.",
+        celebrationTitle: "Detalles de la celebración",
+        celebrationText: "Si el tiempo lo permite, esperamos disfrutar de café y pastel al aire libre y más tarde un buffet y baile en el interior. Tenemos muchas ganas de celebrar con ustedes y compartir buenos momentos y conversaciones. Si tienen ideas adicionales para el programa, pueden contactar con Judit (teléfono: +49 162 6922836)."
     }
 };
 
@@ -238,6 +244,8 @@ function setLanguage(lang) {
     document.getElementById("giftText").innerText = translations[lang].giftText;
     document.getElementById("ceremonyTimeLabel").innerText = translations[lang].timeLabel;
     document.getElementById("receptionTimeLabel").innerText = translations[lang].timeLabel;
+    document.getElementById("celebrationTitle").innerText = translations[lang].celebrationTitle;
+    document.getElementById("celebrationText").innerText = translations[lang].celebrationText;
 
 }
 
@@ -287,6 +295,11 @@ window.onload = function() {
     <div class="box gift-box">
         <h3 id="giftTitle">Gift Recommendation</h3>
         <p id="giftText"></p>
+    </div>
+
+    <div class="info-box">
+        <h2 id="celebrationTitle">Celebration Details</h2>
+        <p id="celebrationText"></p>
     </div>
 </section>
 
