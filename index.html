@@ -194,9 +194,10 @@ const translations = {
         celebrationTitle: "Celebration Details",
         celebrationText: "If the weather permits, we hope to enjoy coffee and cake outside, followed later by a buffet and dancing indoors. We are looking forward to celebrate together and share many great conversations with you. If you have any ideas for the program (even to be kept secret from us), feel free to contact Judit (phone: +49 162 6922836).",
         hotelTitle: "Accommodation",
-        hotelText: 'If you\'re still looking for a place to stay:<br><br>We\'ve blocked some rooms at Comfor Hotel in Ulm.<br>You can book them directly using the passcode "<strong>gegenüber</strong>".<br><br><a href="https://www.comfor.de/" target="_blank">Visit Hotel Website</a>',
+        hotelText: "If you're still looking for a place to stay: We've blocked some rooms at Comfor Hotel in Ulm. You can book them directly on the hotel's website using the passcode \"gegenüber\". https://www.comfor.de/",
         transportTitle: "How to reach via public transport",
-        hotelText: 'If you\'re still looking for a place to stay:<br><br>We\'ve blocked some rooms at Comfor Hotel in Ulm.<br>You can book them directly using the passcode "<strong>gegenüber</strong>".<br><br><a href="https://www.comfor.de/" target="_blank">Visit Hotel Website</a>'
+        transportText: "During the day: Bus stop \"Offenhausen St. Albert\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf \n\nAt night: Bus stop \"Offenhausen Heinrich-Heine-Straße\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf"
+    
     },
     de: {
         subtitle: "Wir heiraten!",
@@ -216,9 +217,9 @@ const translations = {
         celebrationTitle: "Weitere Informationen zur Feier",
         celebrationText: "Es wird hoffentlich (bei gutem Wetter) draußen Kaffee und Kuchen geben und später drinnen Buffet und Tanz. Wir freuen uns auf gemeinsame Gespräche und die Feier mit euch. Für zusätzliche Ideen zum Programm gerne an Judit wenden (Tel.: +49 162 6922836).",
         hotelTitle: "Unterkunft",
-        hotelText: 'Falls ihr noch eine Unterkunft braucht:<br><br>Im Comfor Hotel in Ulm haben wir ein paar Zimmer geblockt.<br>Mit dem Passwort "<strong>gegenüber</strong>" könnt ihr direkt buchen.<br><br><a href="https://www.comfor.de/" target="_blank">Zur Hotel-Website</a>',
-        transportText: 'Tagsüber Haltestelle "Offenhausen St. Albert"<br><a href="https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf" target="_blank">Fahrplan ansehen</a><br><br>Nachts Haltestelle "Offenhausen Heinrich-Heine-Straße"<br><a href="https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf" target="_blank">Fahrplan ansehen</a>',
-        transportTitle: "Anfahrt mit Öffis"
+        hotelText: "Falls ihr noch eine Unterkunft braucht: Im Comfor Hotel in Ulm haben wir ein paar Zimmer geblockt. Mit dem Passwort \"gegenüber\" könnt ihr direkt über die Hotelwebsite buchen. https://www.comfor.de/",
+        transportTitle: "Anfahrt mit Öffis",
+        transportText: "Tagsüber Haltestelle \"Offenhausen St. Albert\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf \n\nNachts Haltestelle \"Offenhausen Heinrich-Heine-Straße\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf"
     },
     es: {
         subtitle: "¡Nos casamos!",
@@ -237,10 +238,10 @@ const translations = {
         giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal.",
         celebrationTitle: "Detalles",
         celebrationText: "Si el clima lo permite, esperamos comer pastel y tomar café al aire libre. Despues habrá un buffet y baile adentro de la casa. Tenemos muchas ganas de celebrar con ustedes y compartir buenos momentos y conversaciones. Si tienen ideas adicionales para nuestro dia, pueden contactar a Judit (teléfono: +49 162 6922836).",
-        hotelTitle: "Hospedage",
-        hotelText: 'Si están buscando un hospedaje:<br><br>Hemos reservado algunas habitaciones en el Comfor Hotel en Ulm.<br>Pueden reservar usando el código "<strong>gegenüber</strong>".<br><br><a href="https://www.comfor.de/" target="_blank">Visitar página del hotel</a>',
-        transportText: 'Durante el día: Parada "Offenhausen St. Albert"<br><a href="https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf" target="_blank">Ver horario</a><br><br>Por la noche: Parada "Offenhausen Heinrich-Heine-Straße"<br><a href="https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf" target="_blank">Ver horario</a>',
-        transportTitle: "Cómo llegar con transporte público"
+        hotelTitle: "Alojamiento",
+        hotelText: "Si están buscando un hospedaje: Hemos reservado algunas habitaciones en el Comfor Hotel en Ulm. Pueden reservar directamente en la página del hotel usando el código \"gegenüber\". https://www.comfor.de/",
+        transportTitle: "Cómo llegar con transporte público",
+        transportText: "Durante el día: Parada \"Offenhausen St. Albert\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf \n\nPor la noche: Parada \"Offenhausen Heinrich-Heine-Straße\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf"
     }
 };
 
@@ -321,11 +322,14 @@ window.onload = function() {
     <div class="box">
         <h3 id="hotelTitle">Hotel Recommendation</h3>
         <p id="hotelText"></p>
+        <a class="button" href="https://www.comfor.de/" target="_blank">Hotel booking link</a>
     </div>
 
     <div class="box">
         <h3 id="transportTitle">Public Transport</h3>
         <p id="transportText"></p>
+        <a class="button" href="https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf" target="_blank">Bus Plan</a>
+        <a class="button" href="https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf" target="_blank">Night Bus Plan</a>
     </div>
 </section>
 
