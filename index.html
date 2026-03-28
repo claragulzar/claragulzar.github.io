@@ -192,7 +192,11 @@ const translations = {
         weddingArrived: "The Wedding Day Has Arrived!",
         giftText: "The greatest gift is your presence. Besides, we already have everything we need. If you still want to gift us something, we would be grateful for a contribution to our trip to Spain/Portugal.",
         celebrationTitle: "Celebration Details",
-        celebrationText: "If the weather permits, we hope to enjoy coffee and cake outside, followed later by a buffet and dancing indoors. We are looking forward to celebrate together and share many great conversations with you. If you have any ideas for the program (even to be kept secret from us), feel free to contact Judit (phone: +49 162 6922836)."
+        celebrationText: "If the weather permits, we hope to enjoy coffee and cake outside, followed later by a buffet and dancing indoors. We are looking forward to celebrate together and share many great conversations with you. If you have any ideas for the program (even to be kept secret from us), feel free to contact Judit (phone: +49 162 6922836).",
+        hotelTitle: "Accommodation",
+        hotelText: "If you're still looking for a place to stay: We've blocked some rooms at Comfor Hotel in Ulm. You can book them directly on the hotel's website using the passcode \"gegenüber\". https://www.comfor.de/",
+        transportTitle: "How to reach via public transport",
+        transportText: "During the day: Bus stop \"Offenhausen St. Albert\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf \n\nAt night: Bus stop \"Offenhausen Heinrich-Heine-Straße\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf"
     },
     de: {
         subtitle: "Wir heiraten!",
@@ -210,7 +214,11 @@ const translations = {
         weddingArrived: "Der Hochzeitstag ist da!",
         giftText: "Das größte Geschenk ist eure Anwesenheit. Außerdem haben wir bereits alles, was wir brauchen. Wenn ihr uns dennoch eine Freude machen möchtet, sind wir dankbar für einen Zuschuss zu unserer Reise nach Spanien/Portugal.",
         celebrationTitle: "Weitere Informationen zur Feier",
-        celebrationText: "Es wird hoffentlich (bei gutem Wetter) draußen Kaffee und Kuchen geben und später drinnen Buffet und Tanz. Wir freuen uns auf gemeinsame Gespräche und die Feier mit euch. Für zusätzliche Ideen zum Programm gerne an Judit wenden (Tel.: +49 162 6922836)."
+        celebrationText: "Es wird hoffentlich (bei gutem Wetter) draußen Kaffee und Kuchen geben und später drinnen Buffet und Tanz. Wir freuen uns auf gemeinsame Gespräche und die Feier mit euch. Für zusätzliche Ideen zum Programm gerne an Judit wenden (Tel.: +49 162 6922836).",
+        hotelTitle: "Unterkunft",
+        hotelText: "Falls ihr noch eine Unterkunft braucht: Im Comfor Hotel in Ulm haben wir ein paar Zimmer geblockt. Mit dem Passwort \"gegenüber\" könnt ihr direkt über die Hotelwebsite buchen. https://www.comfor.de/",
+        transportTitle: "Anfahrt mit Öffis",
+        transportText: "Tagsüber Haltestelle \"Offenhausen St. Albert\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf \n\nNachts Haltestelle \"Offenhausen Heinrich-Heine-Straße\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf"
     },
     es: {
         subtitle: "¡Nos casamos!",
@@ -228,7 +236,11 @@ const translations = {
         weddingArrived: "¡El día de la boda ha llegado!",
         giftText: "El mejor regalo es su presencia en nuestra boda. Además, ya tenemos todo lo que necesitamos. Si nos quieren regalar algo de todos modos, les agradeceríamos una contribución para nuestro viaje a España/Portugal.",
         celebrationTitle: "Detalles",
-        celebrationText: "Si el clima lo permite, esperamos comer pastel y tomar café al aire libre. Despues habrá un buffet y baile adentro de la casa. Tenemos muchas ganas de celebrar con ustedes y compartir buenos momentos y conversaciones. Si tienen ideas adicionales para nuestro dia, pueden contactar a Judit (teléfono: +49 162 6922836)."
+        celebrationText: "Si el clima lo permite, esperamos comer pastel y tomar café al aire libre. Despues habrá un buffet y baile adentro de la casa. Tenemos muchas ganas de celebrar con ustedes y compartir buenos momentos y conversaciones. Si tienen ideas adicionales para nuestro dia, pueden contactar a Judit (teléfono: +49 162 6922836).",
+        hotelTitle: "Hospedage",
+        hotelText: "Si están buscando un hospedaje: Hemos reservado algunas habitaciones en el Comfor Hotel en Ulm. Pueden reservar directamente en la página del hotel usando el código \"gegenüber\". https://www.comfor.de/",
+        transportTitle: "Cómo llegar con transporte público",
+        transportText: "Durante el día: Parada \"Offenhausen St. Albert\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-84-m-j26-1.pdf \n\nPor la noche: Parada \"Offenhausen Heinrich-Heine-Straße\" https://ding.eu/01_Fahrplan/Fahrplantabellen/2026/93-5-N-j26-1.pdf"
     }
 };
 
@@ -246,6 +258,10 @@ function setLanguage(lang) {
     document.getElementById("receptionTimeLabel").innerText = translations[lang].timeLabel;
     document.getElementById("celebrationTitle").innerText = translations[lang].celebrationTitle;
     document.getElementById("celebrationText").innerText = translations[lang].celebrationText;
+    document.getElementById("hotelTitle").innerText = translations[lang].hotelTitle;
+    document.getElementById("hotelText").innerText = translations[lang].hotelText;
+    document.getElementById("transportTitle").innerText = translations[lang].transportTitle;
+    document.getElementById("transportText").innerText = translations[lang].transportText;
 
 }
 
@@ -300,6 +316,16 @@ window.onload = function() {
     <div class="box" style="border: 2px solid #800020;">
         <h2 id="celebrationTitle">Celebration Details</h2>
         <p id="celebrationText"></p>
+    </div>
+
+    <div class="box">
+        <h3 id="hotelTitle">Hotel Recommendation</h3>
+        <p id="hotelText"></p>
+    </div>
+
+    <div class="box">
+        <h3 id="transportTitle">Public Transport</h3>
+        <p id="transportText"></p>
     </div>
 </section>
 
