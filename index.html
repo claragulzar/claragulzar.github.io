@@ -106,18 +106,30 @@ section {
     
 .main-layout {
     display: flex;
-    gap: 20px;
+    justify-content: center;
     align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
 }
 
 .main-content {
     flex: 2;
+    max-width: 700px;
 }
 
 .schedule-box {
     flex: 1;
+    max-width: 400px;
     position: sticky;
-    top: 120px;
+    top: 100px;
+}
+    .schedule-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 /* Hide on smaller screens */
@@ -127,15 +139,12 @@ section {
     }
 
     .schedule-box {
-        order: -1;         /* 👈 THIS pushes it to top */
         position: static;
+        order: -1; /* moves to top */
+        max-width: 100%;
     }
 }
-    .schedule-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
+
 
 .gift-box {
     font-family: "Cormorant Garamond", serif;
@@ -325,10 +334,10 @@ window.onload = function() {
 
 <section>
 
-     <!-- Schedule FIRST -->
+ <!-- RIGHT: schedule -->
     <div class="box schedule-box">
         <h3 id="scheduleTitle">Schedule</h3>
-        <img id="scheduleImage" src="schedule_en.jpg" class="schedule-img">
+        <img id="scheduleImage" src="schedule_en.jpeg" class="schedule-img">
     </div>
     
     <div class="box">
