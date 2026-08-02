@@ -290,6 +290,7 @@ const translations = {
         scheduleTitle: "Programa",
         scheduleImage: "schedule_es.jpeg",
         hotelText: 'Si están buscando un hospedaje:<br><br>Hemos reservado algunas habitaciones en el Comfor Hotel en Ulm.<br>Pueden reservarlas llamando o escribiendo directamente al hotel usando el código "<strong>gegenüber</strong>".',
+        parkingTitle: "Cómo llegar en coche",
         parkingText: "Pueden estacionar en St. Albert durante todo el día — el estacionamiento junto a la iglesia estará disponible para los invitados desde la mañana hasta después de que termine la celebración, así que no será necesario mover el coche entre la ceremonia y la fiesta.",
         transportTitle: "Cómo llegar con transporte público",
         transportText: "Durante el día: Parada \"Offenhausen St. Albert\" \n\nPor la noche: Parada \"Offenhausen Heinrich-Heine-Straße\"",
@@ -303,7 +304,7 @@ function setLanguage(lang) {
     document.getElementById("subtitle").innerText = translations[lang].subtitle;
     document.getElementById("ceremonyTitle").innerText = translations[lang].ceremony;
     document.getElementById("receptionTitle").innerText = translations[lang].reception;
-    document.getElementById("rsvpTitle").innerText = translations[lang].rsvp;
+    //document.getElementById("rsvpTitle").innerText = translations[lang].rsvp;
     document.getElementById("ceremonyLoc").innerText = translations[lang].ceremonyLoc;
     document.getElementById("receptionLoc").innerText = translations[lang].receptionLoc;
     document.getElementById("giftTitle").innerText = translations[lang].giftTitle;
