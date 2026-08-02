@@ -233,8 +233,10 @@ const translations = {
         scheduleTitle: "Schedule",
         scheduleImage: "schedule_en.jpeg",
         hotelText: "If you're still looking for a place to stay: We've blocked some rooms at Comfor Hotel in Ulm. You can book them by either emailing or calling the hotel using the passcode \"gegenüber\".",
+        parkingTitle: "Arriving by Car",
+        parkingText: "You're welcome to park at St. Albert for the whole day — the car park at the church will be available for guests from morning until after the celebration ends, so there's no need to move your car between the ceremony and the reception.",
         transportTitle: "How to reach via public transport",
-        transportText: "During the day: Bus stop \"Offenhausen St. Albert\" \n\nAt night: Bus stop \"Offenhausen Heinrich-Heine-Straße\"",
+        transportText: "During the day: Bus stop \"Offenhausen St. Albert\" \n\n ; At night: Bus stop \"Offenhausen Heinrich-Heine-Straße\"",
         photoTitle: "Share Your Photos",
         photoText: "Capture the day with us! Use the link below to upload your photos and videos to our shared album — we'd love to see the celebration through your eyes. User: wedding & Password: GSCS2026"
     
@@ -260,6 +262,8 @@ const translations = {
         scheduleTitle: "Ablauf",
         scheduleImage: "schedule_de.jpeg",
         hotelText: 'Falls ihr noch eine Unterkunft braucht:<br><br>Im Comfor Hotel in Ulm haben wir ein paar Zimmer geblockt.<br>Ihr könnt diese telefonisch oder per E-Mail direkt beim Hotel mit dem Passwort "<strong>gegenüber</strong>" buchen.',
+        parkingTitle: "Anreise mit dem Auto",
+        parkingText: "Ihr könnt euer Auto den ganzen Tag über bei St. Albert parken — der Parkplatz an der Kirche steht Gästen von morgens bis nach Ende der Feier zur Verfügung, ihr müsst also zwischen Trauung und Feier nicht umparken.",
         transportTitle: "Anfahrt mit Öffis",
         transportText: "Tagsüber Haltestelle \"Offenhausen St. Albert\" \n\nNachts Haltestelle \"Offenhausen Heinrich-Heine-Straße\"",
         photoTitle: "Teilt eure Fotos",
@@ -286,6 +290,7 @@ const translations = {
         scheduleTitle: "Programa",
         scheduleImage: "schedule_es.jpeg",
         hotelText: 'Si están buscando un hospedaje:<br><br>Hemos reservado algunas habitaciones en el Comfor Hotel en Ulm.<br>Pueden reservarlas llamando o escribiendo directamente al hotel usando el código "<strong>gegenüber</strong>".',
+        parkingText: "Pueden estacionar en St. Albert durante todo el día — el estacionamiento junto a la iglesia estará disponible para los invitados desde la mañana hasta después de que termine la celebración, así que no será necesario mover el coche entre la ceremonia y la fiesta.",
         transportTitle: "Cómo llegar con transporte público",
         transportText: "Durante el día: Parada \"Offenhausen St. Albert\" \n\nPor la noche: Parada \"Offenhausen Heinrich-Heine-Straße\"",
         photoTitle: "Comparte tus fotos",
@@ -315,6 +320,8 @@ function setLanguage(lang) {
     document.getElementById("scheduleImage").src = translations[lang].scheduleImage;
     document.getElementById("photoTitle").innerText = translations[lang].photoTitle;
     document.getElementById("photoText").innerText = translations[lang].photoText;
+    document.getElementById("parkingTitle").innerText = translations[lang].parkingTitle;
+    document.getElementById("parkingText").innerText = translations[lang].parkingText;
 
 }
 
@@ -362,12 +369,12 @@ window.onload = function() {
         <p><strong id="receptionTimeLabel">Time:</strong> 15:00 - 02:00</p>
         <a class="button" href="https://www.google.com/maps/search/?api=1&query=Schlössleweg+3+89231+Neu-Ulm" target="_blank">View on Google Maps</a>
     </div>
-
+ <!-- RIGHT: 
     <div class="box" style="border: 2px solid #800020;">
         <h3 id="rsvpTitle">Please Confirm Your Attendance</h3>
         <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdHLgcdPJIpGFmwrNlUsK2AJgDAjnPwuCseubaZrmsDscDRqA/viewform" target="_blank">RSVP Here</a>
     </div>
-
+schedule -->
     <div class="box photo-box" style="border: 2px solid #800020;">
         <h3 id="photoTitle">Share Your Photos</h3>
         <p id="photoText"></p>
@@ -388,6 +395,12 @@ window.onload = function() {
         <h3 id="hotelTitle">Hotel Recommendation</h3>
         <p id="hotelText"></p>
         <a class="button" href="https://www.comfor.de/" target="_blank">Hotel Website</a>
+    </div>
+    
+     <div class="box">
+        <h3 id="parkingTitle">Arriving by Car</h3>
+        <p id="parkingText"></p>
+        <a class="button" href="https://www.google.com/maps/search/?api=1&query=Katholisches+Pfarramt+St.+Albert+Neu-Ulm" target="_blank">View Parking on Google Maps</a>
     </div>
 
     <div class="box">
